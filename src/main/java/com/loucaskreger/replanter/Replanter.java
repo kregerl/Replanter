@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.CocoaBlock;
 import net.minecraft.block.CropBlock;
 import net.minecraft.block.NetherWartBlock;
 import net.minecraft.block.ShapeContext;
@@ -63,6 +64,13 @@ public class Replanter implements ModInitializer {
 				if ((wartBlock.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox().getYLength()
 						* 16) == 14) {
 					im.attackBlock(pos, Direction.DOWN);
+				}
+			} else if (block instanceof CocoaBlock) {
+
+				CocoaBlock cocoaBlock = (CocoaBlock) block;
+				if ((cocoaBlock.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox()
+						.getYLength() == 0.5625)) {
+					im.attackBlock(pos, world.getBlockState(pos).get(CocoaBlock.FACING));
 				}
 			}
 		}
