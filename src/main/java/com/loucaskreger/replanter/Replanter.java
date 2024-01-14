@@ -55,12 +55,12 @@ public class Replanter implements ModInitializer {
                 // If nether wart block outline shape y value is max size then the block is
             } else if (block instanceof NetherWartBlock wartBlock && block == itemBlock) {
                 // fully grown.
-                if ((wartBlock.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox().getYLength()
+                if ((wartBlock.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox().getLengthY()
                         * 16) == 14) {
                     im.attackBlock(pos, Direction.DOWN);
                 }
             } else if (block instanceof CocoaBlock cocoaBlock) {
-                if ((cocoaBlock.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox().getYLength() == 0.5625)) {
+                if ((cocoaBlock.getOutlineShape(state, world, pos, ShapeContext.absent()).getBoundingBox().getLengthY() == 0.5625)) {
                     im.attackBlock(pos, world.getBlockState(pos).get(CocoaBlock.FACING));
                 }
             }
